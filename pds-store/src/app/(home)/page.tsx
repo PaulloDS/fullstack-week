@@ -33,13 +33,15 @@ export default async function Home() {
       <SectionTitle>Ofertas</SectionTitle>
         <ProductList products={deals}/>
       </div>
-
-      <Image className="w-full h-auto px-5 mt-8" src='/banner-home-02.png' width={0} height={0} alt="Até 55% de desconto em mouses!" sizes="100vw"/>
+      <PromoBanner src="/banner-home-02.png" alt="Até 55% de desconto em mouses!"/>
 
       <div className="mt-8">
         <SectionTitle>Teclados</SectionTitle>
         <ProductList products={keyboards}/>
       </div>
+
+      <PromoBanner src="/banner-home-03.png" alt="Até 55% de desconto em mouses!"/>
+      
     </div>
   );
 }
