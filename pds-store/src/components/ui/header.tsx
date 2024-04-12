@@ -3,10 +3,11 @@
 import { HomeIcon, ListOrderedIcon, LogInIcon, LogOutIcon, MenuIcon, PercentIcon, ShoppingCartIcon } from "lucide-react";
 import { Button } from "./button";
 import { Card } from "./card";
-import { Sheet, SheetContent, SheetTrigger, SheetHeader } from "./sheet";
+import { Sheet, SheetContent, SheetTrigger, SheetHeader, SheetClose } from "./sheet";
 import { signIn, signOut, useSession } from "next-auth/react";
 import { Avatar, AvatarFallback, AvatarImage } from "@radix-ui/react-avatar";
 import { Separator } from "@radix-ui/react-separator";
+import Link from "next/link";
 
 const Header = () => {
     const {status, data} = useSession();
@@ -63,20 +64,28 @@ const Header = () => {
                             </Button>
                         )}
 
-                        <Button className="w-full justify-start gap-2" variant="outline">
-                            <HomeIcon size={16}/>
-                            Início
-                        </Button>
+                        <SheetClose asChild>
+                            <Link href={`/`}>
+                                <Button className="w-full justify-start gap-2" variant="outline">
+                                    <HomeIcon size={16}/>
+                                    Início
+                                </Button>
+                            </Link>
+                        </SheetClose>
 
                         <Button className="w-full justify-start gap-2" variant="outline">
                             <PercentIcon size={16}/>
                             Ofertas
                         </Button>
 
-                        <Button className="w-full justify-start gap-2" variant="outline">
-                            <ListOrderedIcon size={16}/>
-                            Catálogo
-                        </Button>
+                        <SheetClose asChild>
+                            <Link href={`/catalog`}>
+                                <Button className="w-full justify-start gap-2" variant="outline">
+                                    <ListOrderedIcon size={16}/>
+                                    Catálogo
+                                </Button>
+                            </Link>
+                        </SheetClose>
                     </div>
                 </SheetContent>
             </Sheet>
