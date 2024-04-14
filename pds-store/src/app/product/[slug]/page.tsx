@@ -40,7 +40,7 @@ const ProductDetailsPage = async ({params: {slug}}: ProductDetailsPage ) => {
 
             <div>
                 <SectionTitle>Produtos recomendados</SectionTitle>
-                <ProductList products={product.category.products}/>
+                <ProductList products={product.category.products}/> 
             </div>
         </div>
      );
